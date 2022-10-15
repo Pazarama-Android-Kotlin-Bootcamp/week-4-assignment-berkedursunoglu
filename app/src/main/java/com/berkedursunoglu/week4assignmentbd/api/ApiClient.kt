@@ -33,6 +33,7 @@ class ApiClient:Application() {
             httpClient.writeTimeout(90, java.util.concurrent.TimeUnit.SECONDS)
             return httpClient.build()
         }
+
     }
 
 

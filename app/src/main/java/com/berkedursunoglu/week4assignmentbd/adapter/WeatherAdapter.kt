@@ -35,8 +35,8 @@ class AdapterViewHolder(val binding: WeatherListRawBinding):RecyclerView.ViewHol
     fun bind(weatherModel: Hourly){
         val df = DecimalFormat("#.#")
         var day = Date(weatherModel.dt* 1000.toLong());
-        binding.tvDay.text = day.toString()
-        Glide.with(binding.root.context).load("http://openweathermap.org/img/wn/${weatherModel.weather.get(adapterPosition).icon}d@2x.png").into(binding.ivWeatherIconRaw)
+        binding.tvDay.text = day.toString().split(" ").get(0)
+        Glide.with(binding.root.context).load("http://openweathermap.org/img/wn/${weatherModel.weather.get(0).icon}@2x.png").into(binding.ivWeatherIconRaw)
         binding.tvWeatherMorningDegree.text = (df.format((weatherModel.temp) - 273)).toString()
         binding.tvWeatherNightDegree.text = (df.format((weatherModel.feels_like) - 273)).toString()
     }

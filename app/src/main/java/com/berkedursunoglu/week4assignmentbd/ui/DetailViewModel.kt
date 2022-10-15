@@ -22,7 +22,7 @@ class DetailViewModel:ViewModel() {
     fun getWeather(context:Context){
        repository.getWeather(context).enqueue(object : Callback<WeatherModel>{
             override fun onResponse(call: Call<WeatherModel>, response: Response<WeatherModel>) {
-                Log.d("Response Body",response.body().toString())
+                Log.d("Response", "Entered")
                 if (response.isSuccessful){
                     weatherModel.value = response.body()
                     Log.d("Response", "SUCCESSFUL")
